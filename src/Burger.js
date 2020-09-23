@@ -1,7 +1,14 @@
 import React from 'react';
-import {Footer} from './Footer.js'
+import Footer from './Footer.js'
 
 import {Lettuce,Bacon,Meat,Cheese} from './Ingredients.js'
+
+
+const BASEPRICE = 8
+const LETTUCEPRICE = 1
+const BACONPRICE = 2
+const CHEESEPRICE = 1
+const MEATPRICE = 3
 
 class Burger extends React.Component {
   constructor(props) {
@@ -14,51 +21,51 @@ class Burger extends React.Component {
     };
   }
 
-  Add(i) {
-    const ingredients = {...this.state}
-    switch (i) {
+  Add(ingredient) {
+    let {Lettuce, Bacon, Cheese, Meat} = this.state;
+    switch (ingredient) {
       case "Lettuce":
-        ingredients.Lettuce=ingredients.Lettuce +1
+        Lettuce=Lettuce +1
         break;
       case "Bacon":
-        ingredients.Bacon=ingredients.Bacon +1
+        Bacon=Bacon +1
         break;
       case "Cheese":
-          ingredients.Cheese=ingredients.Cheese +1
+        Cheese=Cheese +1
         break;
       case "Meat":
-        ingredients.Meat=ingredients.Meat +1
+        Meat=Meat +1
         break;
       }
     this.setState({
-      Lettuce:ingredients.Lettuce,
-      Bacon:ingredients.Bacon,
-      Cheese:ingredients.Cheese,
-      Meat:ingredients.Meat
+      Lettuce:Lettuce,
+      Bacon:Bacon,
+      Cheese:Cheese,
+      Meat:Meat
     });
     this.BurgerPrice();
   }
-  Remove(i) {
-    const ingredients = {...this.state}
-    switch (i) {
+  Remove(ingredient) {
+    let {Lettuce, Bacon, Cheese, Meat} = this.state;
+    switch (ingredient) {
       case "Lettuce":
-        ingredients.Lettuce=ingredients.Lettuce -1
+        Lettuce=Lettuce -1
         break;
       case "Bacon":
-        ingredients.Bacon=ingredients.Bacon -1
+        Bacon=Bacon -1
         break;
       case "Cheese":
-          ingredients.Cheese=ingredients.Cheese -1
+        Cheese=Cheese -1
         break;
       case "Meat":
-        ingredients.Meat=ingredients.Meat -1
+        Meat=Meat -1
         break;
       }
     this.setState({
-      Lettuce:ingredients.Lettuce,
-      Bacon:ingredients.Bacon,
-      Cheese:ingredients.Cheese,
-      Meat:ingredients.Meat
+      Lettuce:Lettuce,
+      Bacon:Bacon,
+      Cheese:Cheese,
+      Meat:Meat
     });
 
     this.BurgerPrice();
@@ -89,13 +96,8 @@ class Burger extends React.Component {
   }
 
   BurgerPrice(){
-    const BasicPrice=8
-    const LettucePrice=1
-    const BaconPrice=2
-    const CheesePrice=1
-    const MeatPrice=3
-    var price=8 + (this.state.Lettuce*LettucePrice) +(this.state.Bacon*BaconPrice)
-    +(this.state.Cheese*CheesePrice)+(this.state.Meat*MeatPrice)
+    var price=BASEPRICE + (this.state.Lettuce*LETTUCEPRICE) +(this.state.Bacon*BACONPRICE)
+    +(this.state.Cheese*CHEESEPRICE)+(this.state.Meat*MEATPRICE)
 
     return price
 
@@ -103,8 +105,7 @@ class Burger extends React.Component {
   }
 
   render(){
-    const BurgerIndredients = this.BurgerIndredients()
-    const Price=this.BurgerPrice()
+    const [BurgerIndredients,Price] = [this.BurgerIndredients(),this.BurgerPrice()]
     return(
       <div>
           <div className="Burger__Burger__2h2kL">
@@ -119,8 +120,8 @@ class Burger extends React.Component {
           <p>Current price: <strong>{Price}</strong></p>
           <Footer
 
-            onClickAdd={i => this.Add(i)}
-            onClickRemove={i => this.Remove(i)}
+            onClickAdd={ingredient => this.Add(ingredient)}
+            onClickRemove={ingredient => this.Remove(ingredient)}
             ingredients={this.state}
           />
 
@@ -132,4 +133,4 @@ class Burger extends React.Component {
 }
 
 
-export {Burger}
+export default Burger

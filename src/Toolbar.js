@@ -15,4 +15,4 @@ function Toolbar(){
   );
 }
 
-export {Toolbar}
+export default Toolbar

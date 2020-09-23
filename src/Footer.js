@@ -1,69 +1,61 @@
 import React from 'react';
 
 
-class Footer extends React.Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-
-  render(){
-
-    return(
+const Footer = (props) =>
+  (
 
       <div>
         <div class="BuildControl__BuildControl__ibcUQ">
           <div class="BuildControl__Label__2VLnR">Lettuce</div>
-            {this.props.ingredients.Lettuce ? (
+            {props.ingredients.Lettuce ? (
               <button class="BuildControl__Less__3X6hg" disabled=""
-              onClick={() => this.props.onClickRemove('Lettuce')}>Less</button>
+              onClick={() => props.onClickRemove('Lettuce')}>Less</button>
             ) : (
               <button class="BuildControl__Less__3X6hg" disabled={true}
-              onClick={() => this.props.onClickRemove('Lettuce')}>Less</button>
+              onClick={() => props.onClickRemove('Lettuce')}>Less</button>
             )}
 
             <button class="BuildControl__More__2eQpV"
-            onClick={() => this.props.onClickAdd('Lettuce')}>More</button>
+            onClick={() => props.onClickAdd('Lettuce')}>More</button>
         </div>
         <div class="BuildControl__BuildControl__ibcUQ">
           <div class="BuildControl__Label__2VLnR">Bacon</div>
-            {this.props.ingredients.Bacon ? (
+            {props.ingredients.Bacon ? (
               <button class="BuildControl__Less__3X6hg" disabled=""
-              onClick={() => this.props.onClickRemove('Bacon')}>Less</button>
+              onClick={() => props.onClickRemove('Bacon')}>Less</button>
             ) : (
               <button class="BuildControl__Less__3X6hg" disabled={true}
-              onClick={() => this.props.onClickRemove('Bacon')}>Less</button>
+              onClick={() => props.onClickRemove('Bacon')}>Less</button>
             )}
-            <button class="BuildControl__More__2eQpV" onClick={() => this.props.onClickAdd('Bacon')}>More</button>
+            <button class="BuildControl__More__2eQpV" onClick={() => props.onClickAdd('Bacon')}>More</button>
         </div>
         <div class="BuildControl__BuildControl__ibcUQ">
           <div class="BuildControl__Label__2VLnR">Cheese</div>
-            {this.props.ingredients.Cheese ? (
+            {props.ingredients.Cheese ? (
               <button class="BuildControl__Less__3X6hg" disabled=""
-              onClick={() => this.props.onClickRemove('Cheese')}>Less</button>
+              onClick={() => props.onClickRemove('Cheese')}>Less</button>
             ) : (
               <button class="BuildControl__Less__3X6hg" disabled={true}
-              onClick={() => this.props.onClickRemove('Cheese')}>Less</button>
+              onClick={() => props.onClickRemove('Cheese')}>Less</button>
             )}
-            <button class="BuildControl__More__2eQpV" onClick={() => this.props.onClickAdd('Cheese')}>More</button>
+            <button class="BuildControl__More__2eQpV" onClick={() => props.onClickAdd('Cheese')}>More</button>
         </div>
         <div class="BuildControl__BuildControl__ibcUQ">
           <div class="BuildControl__Label__2VLnR">Meat</div>
-            {this.props.ingredients.Meat ? (
+            {props.ingredients.Meat ? (
               <button class="BuildControl__Less__3X6hg" disabled=""
-              onClick={() => this.props.onClickRemove('Meat')}>Less</button>
+              onClick={() => props.onClickRemove('Meat')}>Less</button>
             ) : (
               <button class="BuildControl__Less__3X6hg" disabled={true}
-              onClick={() => this.props.onClickRemove('Meat')}>Less</button>
+              onClick={() => props.onClickRemove('Meat')}>Less</button>
             )}
-            <button class="BuildControl__More__2eQpV" onClick={() => this.props.onClickAdd('Meat')}>More</button>
+            <button class="BuildControl__More__2eQpV" onClick={() => props.onClickAdd('Meat')}>More</button>
         </div>
       </div>
 
 
     );
-  }
-}
 
-export {Footer}
+
+
+export default Footer
